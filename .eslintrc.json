@@ -1,0 +1,53 @@
+{
+    "env": {
+      "browser": true,
+      "es2020": true
+    },
+  
+    "extends": [
+    "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:prettier/recommended",
+      "prettier/react",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true,
+        "js": true
+      },
+      "project": "./tsconfig.json",
+    "tsconfigRootDir": "./",
+      "ecmaVersion": 11,
+      "sourceType": "module"
+    },
+    "plugins": ["react", "prettier", "react-hooks"],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "rules": {
+      "prettier/prettier": ["error"],
+      "react/prop-types": 0,
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "no-console": "error",
+      "react/no-unescaped-entities": 0,
+      "eslint/ban-ts-comment": 0,
+      "eslint/no-extra-semi": 0,
+      "eslint/indent": 0,
+      "eslint/no-var-requires": 0,
+      "eslint/no-use-before-define": 0,
+      "eslint/camelcase": 0,
+      "eslint/no-non-null-assertion": 0,
+      "eslint/interface-name-prefix": 0,
+      "eslint/member-delimiter-style": 0,
+      "eslint/explicit-member-accessibility": 0,
+      "react/jsx-no-target-blank": 0,
+      "react/display-name": 0,
+      "react/react-in-jsx-scope": 0,
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }]
+    }
+  }
+  
