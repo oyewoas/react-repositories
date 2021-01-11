@@ -4,8 +4,10 @@ import { GET_REACT_REPOSITORIES } from "../graphql/query";
 import { map } from "lodash/fp";
 import { Table, Spin } from "antd";
 import { StarTwoTone, ForkOutlined } from "@ant-design/icons";
+import { v4 as uuidv4 } from "uuid";
 
 import styled from "styled-components";
+import SearchBar from "./SearchBar";
 
 const LoadingSpinnerContainer = styled.div`
   margin: 0 auto;
@@ -24,6 +26,10 @@ interface ITableData {
 const ReactRepositories: React.FC = () => {
   const { data, error, loading } = useQuery(GET_REACT_REPOSITORIES);
   const [reactRepositories, setReactRepositories] = useState<ITableData[]>([]);
+  const [reactDefaultRepositories, setReactDefaultRepositories] = useState<
+    ITableData[]
+  >([]);
+  const [keyword, setKeyWord] = useState<string | undefined>("");
   const paginationProps = {
     pageSizeOptions: ["10", "20"],
     defaultPageSize: 10,
@@ -34,7 +40,7 @@ const ReactRepositories: React.FC = () => {
     if (data) {
       const tableData: ITableData[] = map(
         (repo: any) => ({
-          key: repo.node.name,
+          key: uuidv4(),
           name: repo.node.name,
           stars: repo.node.stargazers.totalCount,
           forks: repo.node.forks.totalCount,
@@ -43,8 +49,23 @@ const ReactRepositories: React.FC = () => {
         data.search.edges
       );
       setReactRepositories(tableData);
+      setReactDefaultRepositories(tableData);
     }
   }, [data]);
+
+  const handleSearch = (searchParam: string) => {
+    const filtered = reactRepositories.filter((repository) => {
+      return repository.name.toLowerCase().includes(searchParam.toLowerCase());
+    });
+    setKeyWord(searchParam);
+    setReactRepositories(filtered);
+  };
+
+  useEffect(() => {
+    if (keyword === "") {
+      setReactRepositories(reactDefaultRepositories);
+    }
+  }, [keyword]);
 
   const columns = [
     {
@@ -85,7 +106,7 @@ const ReactRepositories: React.FC = () => {
   return (
     <>
       <PageHeading>React Repositories</PageHeading>
-
+      <SearchBar handleSearch={handleSearch} keyword={keyword} />
       {reactRepositories.length && !loading ? (
         <Table
           columns={columns}
