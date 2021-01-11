@@ -16,7 +16,7 @@ Tools Used
 
 ## Setup
 
-Install `yarn` if you dont have any of them already installed.
+Install `yarn` if you dont have it already installed.
 
 After clonning the repo to your local machine and moving into the cloned folder, Run `yarn install` to get started by installing dependencies. 
 
