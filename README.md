@@ -33,7 +33,9 @@ Create a `.env` file in the root of the folder and add your [Github personal acc
 - Fix the codebase for proper syntax and formatting compliance: `yarn lint:fix`
 - Run your app in local dev mode: `yarn start`.
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- The App UI should look like this [App UI](https://prnt.sc/wktyol)
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+  
