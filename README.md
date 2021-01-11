@@ -8,6 +8,7 @@ Tools Used
 
 - React.
 - React Apollo.
+- AntD design framework 
 - uuid for generating random id.
 - TypeScript.
 - Eslint & Prettier: For formatting code.
@@ -19,7 +20,7 @@ Install `yarn` if you dont have any of them already installed.
 
 After clonning the repo to your local machine and moving into the cloned folder, Run `yarn install` to get started by installing dependencies. 
 
-`src/index.ts` is the entry to the project and source code should go into the `src` folder.
+`src/index.tsx` is the entry to the project and source code should go into the `src` folder.
 Create a `.env` file in the root of the folder and add your [Github personal access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) like so: `REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN=your access token`
 
 
