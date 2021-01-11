@@ -1,0 +1,12 @@
+node_modules
+dist
+.coverage
+build
+.history
+.next/
+public
+ignore/
+docs
+docker
+test
+.vscode
